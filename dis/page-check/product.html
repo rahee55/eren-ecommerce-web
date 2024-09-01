@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eren | Cart</title>
+    <link rel="stylesheet" href="style-product.css">
+    <link rel="shortcut icon" href="/dis/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body class="relative top-20">
+    <div id="hel"></div>
+
+    <!-- navbar section started -->
+
+    <nav class=" bg-[#303030] w-full h-20 flex justify-between items-center px-5 sm:px-16 fixed top-0 z-50" >
+        <div class="h-[26px] w-[110px]"> <img class="w-20 h-5 sm:h-7 sm:w-28" src="/dis/images/logo.png" alt=""></div>
+        <div class="flex md:w-3/4">
+            <ul class=" md:flex justify-between md:justify-evenly text-white w-11/12 text-[13px] font-semibold hidden">
+                <a href="/dis/home/index.html"><li class="cursor-pointer hover:text-[#437C8A]">HOME</li></a>
+                <li class="cursor-pointer  hover:text-[#437C8A]" onclick="showBar()">PRODUCTS</li>
+                <a href="/dis/product-collection/product.html"><li class="cursor-pointer hover:text-[#437C8A]">COLLECTION</li></a>
+                <li class="cursor-pointer text-[#437C8A]" onclick="showBarPage()">PAGES</li>
+                <li class="cursor-pointer hover:text-[#437C8A]">ABOUT US</li>
+                <a href="/dis/contect-us/product.html"><li class="cursor-pointer text-[#437C8A]">CONTECT US</li></a>
+            </ul>
+            <i class="fa-solid fa-cart-shopping text-white cursor-pointer mt-1"></i>
+            <i class="fa-solid fa-magnifying-glass text-white ml-4 cursor-pointer mt-1" onclick="searchBar()"></i>
+            <div class="md:hidden"><i class="fa-solid fa-bars text-white font-semibold text-2xl ml-5 sm:ml-10 cursor-pointer" onclick="menuBar()"></i></div>
+        </div>
+    </nav>
+    <div class="flex justify-center">
+        <div class="bg-white w-36 h-40 text-center text-[15px] text-[#4b4949] leading-10 font-semibold shadow-xl fixed hidden z-50 " id="pro">
+            <a href="/dis/product/product.html"><p class="cursor-pointer hover:text-[#437C8A]">Grid Default</p></a>
+            <a href="/dis/product-list/product.html"><p class="cursor-pointer hover:text-[#437C8A]">Grid Lists</p></a>
+            <p class="cursor-pointer hover:text-[#437C8A]">Grid Sidebar</p>
+            <p class="cursor-pointer hover:text-[#437C8A]">List Sidebar</p>
+        </div>
+    </div>
+    <div class="hidden z-50" id="page">
+        <div class=" flex justify-center z-50">
+            <div class="flex text-[15px] text-[#4b4949] leading-10 font-semibold shadow-xl fixed bg-white z-50">
+                <div class="mx-10">
+                    <div class="flex items-center">
+                        <div class="h-4 w-[2px] bg-[#79B6C8] mt-1"></div>
+                        <h2 class="font-bold text-[16px] mb-4 mt-5 ml-4">Blog</h2>
+                    </div>
+                    <a href="/dis/pages/product.html"><p class="cursor-pointer hover:text-[#437C8A]">Blog Two Cols</p></a>
+                    <a href="/dis/pages/product.html"><p class="cursor-pointer hover:text-[#437C8A]">Blog Three Cols</p></a>
+                    <a href="/dis/page-blog/product.html"><p class="cursor-pointer hover:text-[#437C8A]">Blog Posts</p></a>
+                </div>
+                <div class="w-[1px] h-52 bg-[#d4d4d4] mt-10"></div>
+                <div class="mx-10">
+                    <div class="flex items-center">
+                        <div class="h-4 w-[2px] bg-[#79B6C8] mt-1"></div>
+                        <h2 class="font-bold text-[16px] mb-4 mt-5 ml-4">Products Elements</h2>
+                    </div>
+                    <a href="/dis/page-check/product.html"><p class="cursor-pointer hover:text-[#437C8A]">Product Checkouts</p></a>
+                    <a href="/dis/page-detail/product.html"><p class="cursor-pointer hover:text-[#437C8A]">Products Details</p></a>
+                    <p class="cursor-pointer hover:text-[#437C8A]">Shopping Cart</p>
+                </div>
+                <div class="w-[1px] h-52 bg-[#d4d4d4] mt-10"></div>
+                <div class="mx-10">
+                    <div class="flex items-center">
+                        <div class="h-4 w-[2px] bg-[#79B6C8] mt-1"></div>
+                        <h2 class="font-bold text-[16px] mb-4 mt-5 ml-4">Theme Elements</h2>
+                    </div>
+                    <p class="cursor-pointer hover:text-[#437C8A]">Skills</p>
+                    <p class="cursor-pointer hover:text-[#437C8A]">Team & Testimonials</p>
+                    <p class="cursor-pointer hover:text-[#437C8A]">Errors</p>
+                </div>
+                <div class="w-[1px] h-52 bg-[#d4d4d4] mt-10"></div>
+                <img src="/dis/images/mega-menu.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="flex justify-end">
+        <div class="hidden fixed" id="search">
+            <div class="w-72 h-12 bg-white mr-8 shadow-xl flex justify-between items-center ">
+                <input class="ml-5 w-60 focus:outline-none" type="text" alt="search" placeholder="Search">
+                <i class="fa-solid fa-magnifying-glass text-[#817e7e] ml-4 cursor-pointer mr-5"></i>
+            </div>
+        </div>
+    </div>
+    <div class="bg-[#303030] w-full fixed hidden z-[100]" id="menu">
+        <div class="w-full h-[1px] bg-[#474444] mb-5"></div>
+        <ul class="text-[13px] font-semibold text-white ml-10">
+            <a href="/dis/home/index.html"><li class="cursor-pointer hover:text-[#437C8A]">HOME</li></a>
+            <div class="w-11/12 h-[1px] bg-[#474444] my-2"></div>
+            <li class="cursor-pointer hover:text-[#437C8A]">PRODUCTS</li>
+            <div class="w-11/12 h-[1px] bg-[#474444] my-2"></div>
+            <a href="/dis/product-collection/product.html"><li class="cursor-pointer hover:text-[#437C8A]">COLLECTION</li></a>
+            <div class="w-11/12 h-[1px] bg-[#474444] my-2"></div>
+            <li class="cursor-pointer text-[#437C8A]">PAGES</li>
+            <div class="w-11/12 h-[1px] bg-[#474444] my-2"></div>
+            <li class="cursor-pointer hover:text-[#437C8A]">ABOUT US</li>
+            <div class="w-11/12 h-[1px] bg-[#474444] my-2"></div>
+            <li class="cursor-pointer hover:text-[#437C8A]">CONTECT US</li>
+        </ul>
+        <div class="w-full h-[1px] bg-[#474444] mt-5"></div>
+    </div>
+
+    <!-- blog section started -->
+     
+    <div class="w-full flex justify-center items-center">
+        <div class="w-11/12  border-b border-[#d1d6d6] flex items-center pb-1 pt-5 mt-2 mb-10">
+            <a href="/dis/home/index.html"><p class="text-[#656767] text-[15px] mr-2">Home</p></a>
+            <p class=" text-[#656767]">/<span class="text-[15px] ml-2 cursor-pointer">Pages</span></p>
+            <p class=" text-[#656767] ml-2">/<span class="text-[#437C8A] text-[15px] ml-2">Shopping cart</span></p>
+        </div>
+    </div>
+    <div class="w-full flex justify-center items-center mb-5 flex-col">
+        <div class="w-11/12 flex pb-1 pt-5 mb-10 flex-col md:flex-row">
+            <div class="md:w-1/2">
+                <form class="text-[#201F1F]">
+                    <h2 class="font-bold uppercase text-[15px]">Create a new account</h2>
+                    <div class="h-[2px] w-8 bg-[#201F1F] my-2"></div>
+                    <p class="text-[#656767] text-[15px] my-10">
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    </p>
+                    <h3 class="font-bold  my-4 text-[15px]">Email</h3>
+                    <div class="border border-[#d1d6d6] py-[10px]">
+                        <input class="outline-none w-full pl-3" type="text" placeholder="rahee.programmer@gmail.com">
+                    </div>
+                    <h3 class="font-bold my-4 text-[15px]">Password</h3>
+                    <div class="border border-[#d1d6d6] py-[10px]">
+                        <input class="outline-none w-full pl-3" type="text" placeholder="******">
+                    </div>
+                    <div class="flex mt-14">
+                        <button class="h-11 font-medium  uppercase text-[13px]  w-40 hover:bg-[#4f90a0] text-white bg-[#303030]">register now</button>
+                        <button class="h-11 font-medium ml-1 uppercase text-[13px]  w-48 hover:bg-[#4f90a0] text-white bg-[#303030]">Checkout as guest</button>
+                    </div>
+                </form>
+            </div>
+            <div class="md:w-1/2 ml-7 mt-10 md:mt-0">
+                <form class="text-[#201F1F]">
+                    <h2 class="font-bold uppercase text-[15px]">Login to your account</h2>
+                    <div class="h-[2px] w-8 bg-[#201F1F] my-2"></div>
+                    <h3 class="font-bold  my-4 text-[15px]">Email</h3>
+                    <div class="border border-[#d1d6d6] py-[10px]">
+                        <input class="outline-none w-full pl-3" type="text" placeholder="rahee.programmer@gmail.com">
+                    </div>
+                    <h3 class="font-bold my-4 text-[15px]">Password</h3>
+                    <div class="border border-[#d1d6d6] py-[10px]">
+                        <input class="outline-none w-full pl-3" type="text" placeholder="******">
+                    </div>
+                    <div class="flex justify-between items-center my-2">
+                        <div class="flex">
+                            <input type="checkbox" name="" id="">
+                            <p class="text-[14px]">Keep me logged in</p>
+                        </div>
+                        <p class="text-[#437C8A] text-[14px] cursor-pointer">Forgot your password?</p>
+                    </div>
+                    <button class="h-11 font-medium mt-10 uppercase text-[13px] w-56 bg-[#4f90a0] text-white hover:outline-1 hover:outline hover:outline-black">login to your account</button>
+                    <div class="flex mt-4">
+                        <button class="h-11 font-medium  uppercase text-[13px]  w-48 hover:bg-[#4f90a0] text-white bg-[#3B5998] outline-1 outline outline-black hover:outline-none"><i class="fa-brands fa-facebook-f mr-1"></i>login facebook</button>
+                        <button class="h-11 font-medium ml-5 uppercase text-[13px]  w-48 hover:bg-[#4f90a0] text-white bg-[#00ACEE] outline-1 outline outline-black hover:outline-none">Checkout as guest</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="w-11/12 flex pb-1 pt-5 mb-12 mt-6 flex-col">
+            <div class=" w-full">
+                <div class="border-b border-[#d1d6d6] py-2 flex items-center text-[#2D2D2D]"  >
+                    <div onclick=plusBar(this)  class="flex">
+                        <i class="fa-solid fa-square-plus text-[22px] cursor-pointer" id="bill"></i>
+                        <h1 class="uppercase font-bold ml-1 cursor-pointer" >billing information</h1>
+                    </div>
+                </div>
+                <p class="text-[15px] text-[#656767] my-5 hidden" id="para">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book lorem Ipsum has been the industry's standard dummy text ever since the</p>
+            </div>
+            <div class=" w-full" >
+                <div class="border-b border-[#d1d6d6] py-2 flex items-center text-[#2D2D2D]"  >
+                    <div onclick=plusBar(this)  class="flex">
+                        <i class="fa-solid fa-square-plus text-[22px] cursor-pointer" id="bill"></i>
+                        <h1 class="uppercase font-bold ml-1 cursor-pointer" >shipping information</h1>
+                    </div>
+                </div>
+                <p class="text-[15px] text-[#656767] my-5 hidden">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book lorem Ipsum has been the industry's standard dummy text ever since the</p> 
+            </div>
+            <div class=" w-full" >
+                <div class="border-b border-[#d1d6d6] py-2 flex items-center text-[#2D2D2D]"  >
+                    <div onclick=plusBar(this)  class="flex">
+                        <i class="fa-solid fa-square-plus text-[22px] cursor-pointer" id="bill"></i>
+                        <h1 class="uppercase font-bold ml-1 cursor-pointer" >shipping method</h1>
+                    </div>
+                </div>
+                <p class="text-[15px] text-[#656767] my-5 hidden">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book lorem Ipsum has been the industry's standard dummy text ever since the</p>
+            </div>
+            <div class=" w-full" >
+                <div class="border-b border-[#d1d6d6] py-2 flex items-center text-[#2D2D2D]"  >
+                    <div onclick=plusBar(this)  class="flex">
+                        <i class="fa-solid fa-square-plus text-[22px] cursor-pointer" id="bill"></i>
+                        <h1 class="uppercase font-bold ml-1 cursor-pointer" >payment information</h1>
+                    </div>
+                </div>
+                <p class="text-[15px] text-[#656767] my-5 hidden">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book lorem Ipsum has been the industry's standard dummy text ever since the</p>
+            </div>
+            <div class=" w-full" >
+                <div class="border-b border-[#d1d6d6] py-2 flex items-center text-[#2D2D2D]"  >
+                    <div onclick=plusBar(this)  class="flex">
+                        <i class="fa-solid fa-square-plus text-[22px] cursor-pointer" id="bill"></i>
+                        <h1 class="uppercase font-bold ml-1 cursor-pointer" >order review</h1>
+                    </div>
+                </div>
+                <p class="text-[15px] text-[#656767] my-5 hidden">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book lorem Ipsum has been the industry's standard dummy text ever since the</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- blog list ended -->
+    
+<!-- Footer section started -->
+
+<footer class="bg-back-fixx w-full bg-no-repeat bg-cover bg-center pt-[90px] flex flex-col justify-center items-center">
+    <a href="#hel">
+        <div class="h-12 w-12 bg-[#437C8A] flex justify-center items-center rounded-[50%] cursor-pointer relative md:bottom-24 bottom-16">
+        <i class="fa-solid fa-angles-up text-white text-[17px]"></i>
+    </div>
+    </a>
+    <div class="flex items-center justify-evenly w-full flex-wrap">
+        <div class="bg-back-foot bg-no-repeat w-60 h-60 my-10">
+            <div class="flex items-center">
+                <div class="h-5 w-[2px] bg-[#437C8A]"></div>
+                <h1 class="font-bold text-[16px] uppercase pl-5 text-white">about store</h1>
+            </div>
+            <div class=" text-[#8e8e8e] text-[14px] my-5">
+                <div class="flex items-center my-2">
+                    <i class="fa-solid fa-house text-[12px] mr-1"></i>
+                    <p>205 Ali Town, Lahore, Pakistan</p>
+                </div>
+                <div class="flex items-center my-2">
+                    <i class="fa-solid fa-phone text-[12px] mr-1"></i>
+                    <p>+92 333 1480580</p>
+                </div>
+                <div class="flex items-center">
+                    <i class="fa-regular fa-envelope text-[12px] mr-1 mt-1"></i>
+                    <p>rahee.programmer@gmail.com</p>
+                </div>
+                <div class="flex items-center my-7">
+                    <img class="mr-1" src="/dis/images/paymennt1.png" alt="">
+                    <img class="mr-1" src="/dis/images/payment2.png" alt="">
+                    <img class="mr-1 mb-[6px]" src="/dis/images/payment3.jpg" alt="">
+                    <img class="mr-1 mb-[6px]" src="/dis/images/payment3.jpg" alt="">
+                    <img src="/dis/images/payment5.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="w-52 h-60 my-10">
+            <div class="flex items-center">
+                <div class="h-5 w-[2px] bg-[#437C8A]"></div>
+                <h1 class="font-bold text-[16px] uppercase pl-5 text-white">my account</h1>
+            </div>
+            <ul class="text-[#8e8e8e] text-[14px] my-5">
+                <li class="cursor-pointer hover:text-[#437C8A] my-3">My Account</li>
+                <li class="cursor-pointer hover:text-[#437C8A] my-3">Login</li>
+                <li class="cursor-pointer hover:text-[#437C8A] my-3">My Cart</li>
+                <li class="cursor-pointer hover:text-[#437C8A] my-3">Wishlist</li>
+                <li class="cursor-pointer hover:text-[#437C8A] my-3">Checkout</li>
+                <li class="cursor-pointer hover:text-[#437C8A] my-3">Userinfo</li>
+            </ul>
+        </div>
+        <div class="w-52 h-60 my-10">
+            <div class="flex items-center">
+                <div class="h-5 w-[2px] bg-[#437C8A]"></div>
+                <h1 class="font-bold text-[16px] uppercase pl-5 text-white">information</h1>
+            </div>
+            <ul class="text-[#8e8e8e] text-[14px] my-5">
+                <li class="cursor-pointer hover:text-[#437C8A] my-3">My Account</li>
+                <li class="cursor-pointer hover:text-[#437C8A] my-3">Login</li>
+                <li class="cursor-pointer hover:text-[#437C8A] my-3">My Cart</li>
+                <li class="cursor-pointer hover:text-[#437C8A] my-3">Wishlist</li>
+                <li class="cursor-pointer hover:text-[#437C8A] my-3">Checkout</li>
+                <li class="cursor-pointer hover:text-[#437C8A] my-3">Userinfo</li>
+            </ul>
+        </div>
+        <div class="w-52 h-60 my-10">
+            <div class="flex items-center">
+                <div class="h-5 w-[2px] bg-[#437C8A]"></div>
+                <h1 class="font-bold text-[16px] uppercase pl-5 text-white">Customer Service</h1>
+            </div>
+            <ul class="text-[#8e8e8e] text-[14px] my-5">
+                <li class="cursor-pointer hover:text-[#437C8A] my-3">Shipping Policy</li>
+                <li class="cursor-pointer hover:text-[#437C8A] my-3">Compensation First</li>
+                <li class="cursor-pointer hover:text-[#437C8A] my-3">My Account</li>
+                <li class="cursor-pointer hover:text-[#437C8A] my-3">Return Policy</li>
+                <li class="cursor-pointer hover:text-[#437C8A] my-3">Contact Us</li>
+                <li class="cursor-pointer hover:text-[#437C8A] my-3">Shipping Info</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<div class="text-[#606060] text-[13px] w-full sm:h-16 bg-[#2D2D2D] flex items-center px-20 justify-center sm:justify-between flex-wrap ">
+    <p class="mt-3 sm:mt-0">Copyright © 2024 <span class="text-[#437C8A] font-semibold cursor-pointer text-[15px]">Eren</span>. All Right Reserved. </p>
+    <div class="my-5 sm:my-0">
+        <i class="fa-brands fa-facebook-f text-[#8e8e8e] border-l border-dotted border-[#8e8e8e] hover:text-[#437C8A] text-[16px] px-3 py-1"></i>
+        <i class="fa-brands fa-twitter text-[#8e8e8e] border-l border-dotted border-[#8e8e8e] hover:text-[#437C8A] text-[16px] px-3 py-1"></i>
+        <i class="fa-solid fa-rss text-[#8e8e8e] border-l border-dotted border-[#8e8e8e] hover:text-[#437C8A] text-[16px] px-3 py-1"></i>
+        <i class="fa-brands fa-google-plus-g text-[#8e8e8e] border-l border-dotted border-[#8e8e8e] hover:text-[#437C8A] text-[16px] px-3 py-1"></i>
+        <i class="fa-brands fa-linkedin-in text-[#8e8e8e] border-x border-dotted border-[#8e8e8e] hover:text-[#437C8A] text-[16px] px-3 py-1"></i>
+    </div>
+</div>
+</body>
+<script src="javascript-product.js"></script>
+</html>

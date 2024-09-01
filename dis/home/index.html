@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eren</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/dis/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body class="relative top-20">
+
+    <div id="hel"></div>
+
+    <!-- navbar section started -->
+
+    <nav class=" bg-[#303030] w-full h-20 flex justify-between items-center px-5 sm:px-16 fixed top-0 z-50" >
+        <div class="h-[26px] w-[110px]"> <img class="w-20 h-5 sm:h-7 sm:w-28" src="/dis/images/logo.png" alt=""></div>
+        <div class="flex md:w-3/4">
+            <ul class=" md:flex justify-between md:justify-evenly text-white w-11/12 text-[13px] font-semibold hidden">
+                <li class="cursor-pointer text-[#437C8A]">HOME</li>
+                <li class="cursor-pointer hover:text-[#437C8A]" onclick="showBar()">PRODUCTS</li>
+                <a href="/dis/product-collection/product.html"><li class="cursor-pointer hover:text-[#437C8A]">COLLECTION</li></a>
+                <li class="cursor-pointer hover:text-[#437C8A]" onclick="showBarPage()">PAGES</li>
+                <li class="cursor-pointer hover:text-[#437C8A]">ABOUT US</li>
+                <a href="/dis/contect-us/product.html"><li class="cursor-pointer text-[#437C8A]">CONTECT US</li></a>
+            </ul>
+            <i class="fa-solid fa-cart-shopping text-white cursor-pointer mt-1"></i>
+            <i class="fa-solid fa-magnifying-glass text-white ml-4 cursor-pointer mt-1" onclick="searchBar()"></i>
+            <div class="md:hidden"><i class="fa-solid fa-bars text-white font-semibold text-2xl ml-5 sm:ml-10 cursor-pointer" onclick="menuBar()"></i></div>
+        </div>
+    </nav>
+    <div class="flex justify-center z-[100]">
+        <div class="bg-white w-36 h-40 text-center text-[15px] text-[#4b4949] leading-10 z-50 font-semibold shadow-xl fixed hidden " id="pro">
+            <a href="/dis/product/product.html"><p class="cursor-pointer hover:text-[#437C8A]">Grid Default</p></a>
+            <a href="/dis/product-list/product.html"><p class="cursor-pointer hover:text-[#437C8A]">Grid Lists</p></a>
+            <p class="cursor-pointer hover:text-[#437C8A]">Grid Sidebar</p>
+            <p class="cursor-pointer hover:text-[#437C8A]">List Sidebar</p>
+        </div>
+    </div>
+    <div class="hidden z-[100]" id="page">
+        <div class=" flex justify-center z-50">
+            <div class="flex text-[15px] text-[#4b4949] leading-10 font-semibold shadow-xl fixed bg-white z-50">
+                <div class="mx-10">
+                    <div class="flex items-center">
+                        <div class="h-4 w-[2px] bg-[#79B6C8] mt-1"></div>
+                        <h2 class="font-bold text-[16px] mb-4 mt-5 ml-4">Blog</h2>
+                    </div>
+                    <a href="/dis/pages/product.html"><p class="cursor-pointer hover:text-[#437C8A]">Blog Two Cols</p></a>
+                    <a href="/dis/pages/product.html"><p class="cursor-pointer hover:text-[#437C8A]">Blog Three Cols</p></a>
+                    <a href="/dis/page-blog/product.html"><p class="cursor-pointer hover:text-[#437C8A]">Blog Posts</p></a>
+                </div>
+                <div class="w-[1px] h-52 bg-[#d4d4d4] mt-10"></div>
+                <div class="mx-10">
+                    <div class="flex items-center">
+                        <div class="h-4 w-[2px] bg-[#79B6C8] mt-1"></div>
+                        <h2 class="font-bold text-[16px] mb-4 mt-5 ml-4">Products Elements</h2>
+                    </div>
+                    <a href="/dis/page-check/product.html"><p class="cursor-pointer hover:text-[#437C8A]">Product Checkouts</p></a>
+                    <a href="/dis/page-detail/product.html"><p class="cursor-pointer hover:text-[#437C8A]">Products Details</p></a>
+                    <p class="cursor-pointer hover:text-[#437C8A]">Shopping Cart</p>
+                </div>
+                <div class="w-[1px] h-52 bg-[#d4d4d4] mt-10"></div>
+                <div class="mx-10">
+                    <div class="flex items-center">
+                        <div class="h-4 w-[2px] bg-[#79B6C8] mt-1"></div>
+                        <h2 class="font-bold text-[16px] mb-4 mt-5 ml-4">Theme Elements</h2>
+                    </div>
+                    <p class="cursor-pointer hover:text-[#437C8A]">Skills</p>
+                    <p class="cursor-pointer hover:text-[#437C8A]">Team & Testimonials</p>
+                    <p class="cursor-pointer hover:text-[#437C8A]">Errors</p>
+                </div>
+                <div class="w-[1px] h-52 bg-[#d4d4d4] mt-10"></div>
+                <img src="/dis/images/mega-menu.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="flex justify-end">
+        <div class="hidden fixed z-50" id="search">
+            <div class="w-72 h-12 bg-white mr-8 shadow-xl flex justify-between items-center ">
+                <input class="ml-5 w-60 focus:outline-none" type="text" alt="search" placeholder="Search">
+                <i class="fa-solid fa-magnifying-glass text-[#817e7e] ml-4 cursor-pointer mr-5"></i>
+            </div>
+        </div>
+    </div>
+    <div class="bg-[#303030] w-full fixed hidden z-50" id="menu">
+        <div class="w-full h-[1px] bg-[#474444] mb-5"></div>
+        <ul class="text-[13px] font-semibold text-white ml-10">
+            <li class="cursor-pointer text-[#437C8A]">HOME</li>
+            <div class="w-11/12 h-[1px] bg-[#474444] my-2"></div>
+            <li class="cursor-pointer hover:text-[#437C8A]">PRODUCTS</li>
+            <div class="w-11/12 h-[1px] bg-[#474444] my-2"></div>
+            <a href="/dis/product-collection/product.html"><li class="cursor-pointer hover:text-[#437C8A]">COLLECTION</li></a>
+            <div class="w-11/12 h-[1px] bg-[#474444] my-2"></div>
+            <li class="cursor-pointer hover:text-[#437C8A]">PAGES</li>
+            <div class="w-11/12 h-[1px] bg-[#474444] my-2"></div>
+            <li class="cursor-pointer hover:text-[#437C8A]">ABOUT US</li>
+            <div class="w-11/12 h-[1px] bg-[#474444] my-2"></div>
+            <li class="cursor-pointer hover:text-[#437C8A]">CONTECT US</li>
+        </ul>
+        <div class="w-full h-[1px] bg-[#474444] mt-5"></div>
+    </div>
+    
+    <!-- Home section start -->
+
+    <div class="bg-back-home flex  md:leading-[70px]">
+        <div class="flex justify-center flex-col w-1/2 ml-12"> 
+            <h3 class="text-[#1F1F1F] font-bold text-[13px] sm:text-[15px]  md:text-xl ml-[5px] md:mb-5">NEW ARRIVALS</h3>
+            <h1 class="text-[#1F1F1F] font-bold text-[25px] sm:text-[50px] md:text-[85px]">NEW STYLE</h1>
+            <h2 class="font-normal text-[#437C8A] text-2xl sm:text-5xl md:text-7xl">FOR LAMP</h2>
+            <p class="text-[#656767] leading-5 text-[17px] mt-8 hidden md:block">Claritas est etiam processus dynamicus, qui sequitur mutationem <br> consuetudium lectorum.</p>
+            <button class="font-semibold text-[12px] h-7 sm:text-[15px] text-[#1F1F1F] border border-black w-20 sm:h-10 sm:w-28 flex justify-center items-center mt-8 hover:bg-[#437C8A] hover:text-white hover:border-none">Shop Now</button>
+        </div>
+        <div class="flex justify-center w-1/2">
+            <img src="/dis/images/roof-lamp.png" alt="" class="">
+        </div>
+    </div>
+    <div class="my-5 flex justify-evenly flex-wrap">
+        <div class="bg-[#ECEFEE] flex h-48 w-[345px] hover:bg-[#437C8A]  group  hover:!text-white my-5 mx-1 cursor-pointer">
+            <img src="/dis/images/product-box1.png" alt="">
+            <div class="flex justify-center flex-col leading-10">
+                <h1 class=" font-bold text-2xl    group-hover:text-white  text-[#1F1F1F]">ERENHOME DECO</h1>
+                <p class="text-[#1F1F1F] group-hover:text-white">Creative Home Deco Ideal</p>
+                <h2 class="font-semibold text-[#437C8A] text-xl group-hover:text-white">From:$167.00</h2>
+            </div>
+        </div>
+        <div class="bg-[#ECEFEE] flex h-48 w-[345px] hover:bg-[#437C8A]  group  hover:!text-white my-5 mx-1 cursor-pointer">
+            <img src="/dis/images/product-box2.png" alt="">
+            <div class="flex justify-center flex-col leading-10">
+                <h1 class=" font-bold text-2xl    group-hover:text-white  text-[#1F1F1F]">MEGA SALE <br> OFF UP TO</h1>
+                <p class="text-[#1F1F1F] group-hover:text-white">Lamp & Lighting</p>
+                <h2 class="font-semibold text-[#437C8A] text-xl group-hover:text-white">From:$167.00</h2>
+            </div>
+        </div>
+        <div class="bg-[#ECEFEE] flex h-48 w-[345px] hover:bg-[#437C8A]  group  hover:!text-white my-5 mx-1 cursor-pointer">
+            <img src="/dis/images/product-box3.png" alt="">
+            <div class="flex justify-center flex-col leading-10">
+                <h1 class=" font-bold text-2xl    group-hover:text-white  text-[#1F1F1F]">CREATIVE TABLE DESIGN</h1>
+                <p class="text-[#1F1F1F] group-hover:text-white">Creative Home Deco Ideal</p>
+                <h2 class="font-semibold text-[#437C8A] text-xl group-hover:text-white">From:$167.00</h2>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="w-full h-32 flex flex-col justify-center items-center mb-4">
+            <h1 class="text-[#1F1F1F] font-bold text-2xl">   <a href="#navbartest">  </a>  NEW ARRIVALS</h1>
+            <P class="text-[#7c7e7d]">Claritas est etiam processus dynamicus, qui sequitur.</P>
+        </div>
+        <div class="flex flex-wrap justify-evenly">
+            <div class="w-64 h-[450px] group">
+                <div class="w-64 h-80 overflow-hidden relative">
+                    <img class="transition duration-500 hover:scale-110 w-64 h-80" src="/dis/images/product5.jpg" alt="">
+                    <div class="hidden group-hover:block">
+                        <i class="fa-solid fa-up-right-and-down-left-from-center z-50 absolute bottom-32 right-5 text-[#5B5B5B] border border-[#5B5B5B] p-2 hover:text-white hover:bg-[#437C8A] hover:border-none cursor-pointer"></i>
+                    </div>
+                    <div class="hidden group-hover:block">
+                        <i class="fa-solid fa-arrow-right-arrow-left  absolute bottom-20 right-5 text-[#5B5B5B] border border-[#5B5B5B] p-2 hover:text-white hover:bg-[#437C8A] hover:border-none cursor-pointer"></i>
+                    </div>
+                    <div class="hidden group-hover:block">
+                        <i class="fa-regular fa-heart z-50 absolute bottom-8 right-5 text-[#5B5B5B] border border-[#5B5B5B] p-2 hover:text-white hover:bg-[#437C8A] hover:border-none cursor-pointer"></i>
+                    </div>
+                </div>
+                <div class="flex justify-between mt-3">
+                    <P class="text-[#7c7e7d]">Sacrificial Chair Design</P>
+                    <i class="fa-solid fa-bag-shopping text-[#5B5B5B] text-2xl mr-1 group-hover:text-[#437C8A] cursor-pointer"></i>
+                </div>
+                <h1 class="font-semibold text-[#437C8A]">£170.00</h1>
+            </div>
+            <div class="w-64 h-[450px] group">
+                <div class="w-64 h-80 overflow-hidden relative">
+                    <img class="transition duration-500 hover:scale-110 w-64 h-80" src="/dis/images/product6.jpg" alt="">
+                    <div class="hidden group-hover:block">
+                        <i class="fa-solid fa-up-right-and-down-left-from-center z-50 absolute bottom-32 right-5 text-[#5B5B5B] border border-[#5B5B5B] p-2 hover:text-white hover:bg-[#437C8A] hover:border-none cursor-pointer"></i>
+                    </div>
+                    <div class="hidden group-hover:block">
+                        <i class="fa-solid fa-arrow-right-arrow-left absolute bottom-20 right-5 text-[#5B5B5B] border border-[#5B5B5B] p-2 hover:text-white hover:bg-[#437C8A] hover:border-none cursor-pointer"></i>
+                    </div>
+                    <div class="hidden group-hover:block">
+                        <i class="fa-regular fa-heart z-50 absolute bottom-8 right-5 text-[#5B5B5B] border border-[#5B5B5B] p-2 hover:text-white hover:bg-[#437C8A] hover:border-none cursor-pointer"></i>
+                    </div>
+                </div>
+                <div class="flex justify-between mt-3">
+                    <P class="text-[#7c7e7d]">Coats Design</P>
+                    <i class="fa-solid fa-bag-shopping text-[#5B5B5B] text-2xl mr-1 group-hover:text-[#437C8A] cursor-pointer"></i>
+                </div>
+                <h1 class="font-semibold text-[#437C8A]">£170.00</h1>
+            </div>
+            <div class="w-64 h-[450px] group">
+                <div class="w-64 h-80 overflow-hidden relative">
+                    <img class="transition duration-500 hover:scale-110 w-64 h-80" src="/dis/images/product7.jpg" alt="">
+                    <div class="hidden group-hover:block">
+                        <i class="fa-solid fa-up-right-and-down-left-from-center z-50 absolute bottom-32 right-5 text-[#5B5B5B] border border-[#5B5B5B] p-2 hover:text-white hover:bg-[#437C8A] hover:border-none cursor-pointer"></i>
+                    </div>
+                    <div class="hidden group-hover:block">
+                        <i class="fa-solid fa-arrow-right-arrow-left absolute bottom-20 right-5 text-[#5B5B5B] border border-[#5B5B5B] p-2 hover:text-white hover:bg-[#437C8A] hover:border-none cursor-pointer"></i>
+                    </div>
+                    <div class="hidden group-hover:block">
+                        <i class="fa-regular fa-heart z-50 absolute bottom-8 right-5 text-[#5B5B5B] border border-[#5B5B5B] p-2 hover:text-white hover:bg-[#437C8A] hover:border-none cursor-pointer"></i>
+                    </div>
+                </div>
+                <div class="flex justify-between mt-3">
+                    <P class="text-[#7c7e7d]">Lamp Design</P>
+                    <i class="fa-solid fa-bag-shopping text-[#5B5B5B] text-2xl mr-1 group-hover:text-[#437C8A] cursor-pointer"></i>
+                </div>
+                <h1 class="font-semibold text-[#437C8A]">£170.00</h1>
+            </div>
+            <div class="w-64 h-[450px] group">
+                <div class="w-64 h-80 overflow-hidden relative">
+                    <img class="transition duration-500 hover:scale-110 w-64 h-80" src="/dis/images/product8.jpg" alt="">
+                    <div class="hidden group-hover:block">
+                        <i class="fa-solid fa-up-right-and-down-left-from-center z-50 absolute bottom-32 right-5 text-[#5B5B5B] border border-[#5B5B5B] p-2 hover:text-white hover:bg-[#437C8A] hover:border-none cursor-pointer"></i>
+                    </div>
+                    <div class="hidden group-hover:block">
+                        <i class="fa-solid fa-arrow-right-arrow-left absolute bottom-20 right-5 text-[#5B5B5B] border border-[#5B5B5B] p-2 hover:text-white hover:bg-[#437C8A] hover:border-none cursor-pointer"></i>
+                    </div>
+                    <div class="hidden group-hover:block">
+                        <i class="fa-regular fa-heart z-50 absolute bottom-8 right-5 text-[#5B5B5B] border border-[#5B5B5B] p-2 hover:text-white hover:bg-[#437C8A] hover:border-none cursor-pointer"></i>
+                    </div>
+                </div>
+                <div class="flex justify-between mt-3">
+                    <P class="text-[#7c7e7d]">Bags Design</P>
+                    <i class="fa-solid fa-bag-shopping text-[#5B5B5B] text-2xl mr-1 group-hover:text-[#437C8A]  "></i>
+                </div>
+                <h1 class="font-semibold text-[#437C8A]">£170.00</h1>
+            </div>
+        </div>
+    </div>
+    <div class="w-full h-full flex justify-center items-center">
+        <div class="w-11/12 h-full flex justify-center items-center flex-col relative">
+            <div class="w-11/12 flex flex-col md:flex-row justify-center items-center md:items-start md:justify-evenly bg-back-image bg-cover bg-center bg-no-repeat">
+                <div class="mt-16 md:mt-0 w-80 h-[360px] md:w-96 md:h-[460px] overflow-hidden mr-4">
+                    <img class="transition duration-500 hover:scale-110 w-96 h-[460px]" src="/dis/images/design-prouct.jpg" alt="">
+                </div>
+                <div class=" mt-14 md:mt-10 mb-16 md:mb-0">
+                    <h1 class="text-[#4E4E4E] text-2xl font-semibold mt-7">Sacrificial Chair Design</h1>
+                    <div class="flex mt-3 items-center">
+                        <i class="fa-regular fa-star text-[12px] text-[#437C8A]"></i><i class="fa-regular fa-star text-[12px] text-[#437C8A]"></i><i class="fa-regular fa-star text-[12px] text-[#437C8A]"></i><i class="fa-regular fa-star text-[12px] text-[#437C8A]"></i><i class="fa-regular fa-star text-[12px]"></i>
+                        <div class="h-[15px] w-[1px] bg-[#949393] mx-3"></div>
+                        <p class="text-[15px] text-[#4E4E4E]">10 review(s)</p>
+                        <div class="h-[15px] w-[1px] bg-[#949393] mx-3"></div>
+                        <p class="text-[15px] text-[#4E4E4E]">Add your review</p>
+                    </div>
+                    <div class="flex mt-3">
+                        <h1 class="font-bold text-2xl text-[#437C8A]">£170.00</h1>
+                        <h3 class="text-2xl ml-3"><span class="font-bold">£</span>69.00</h3>
+                    </div>
+                    <p class="text-[14px] text-[#4E4E4E] mt-3 font-medium">Size: <span class="text-[#437C8A]">Large</span></p>
+                    <p class="text-[14px] text-[#4E4E4E] mt-3 font-medium">Color: <span class="text-[#437C8A]">Grey white & Brown</span></p>
+                    <p class="text-[14px] text-[#4E4E4E] mt-3 font-medium">Dimension: <span class="text-[#437C8A]">Height: 13cm x Length: 15cm</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mt-10">
+        <div class="w-full h-32 flex flex-col justify-center items-center mb-4">
+            <h1 class="text-[#1F1F1F] font-bold text-2xl uppercase">featured products</h1>
+            <P class="text-[#7c7e7d]">Claritas est etiam processus dynamicus, qui sequitur.</P>
+        </div>
+        <div class="flex flex-wrap justify-evenly">
+            <div class="w-64 h-[450px] group">
+                <div class="w-64 h-80 overflow-hidden relative">
+                    <img class="transition duration-500 hover:scale-110 w-64 h-80" src="/dis/images/product1-bag.jpg" alt="">
+                </div>
+                <div class="flex justify-between mt-3">
+                    <P class="text-[#7c7e7d]">Bag Design</P>
+                    <i class="fa-solid fa-bag-shopping text-[#5B5B5B] text-2xl mr-1 group-hover:text-[#437C8A] cursor-pointer"></i>
+                </div>
+                <h1 class="font-semibold text-[#437C8A]">£170.00</h1>
+            </div>
+            <div class="w-64 h-[450px] group">
+                <div class="w-64 h-80 overflow-hidden relative">
+                    <img class="transition duration-500 hover:scale-110 w-64 h-80" src="/dis/images/product2-lamp.jpg" alt="">
+                </div>
+                <div class="flex justify-between mt-3">
+                    <P class="text-[#7c7e7d]">Lamp Design</P>
+                    <i class="fa-solid fa-bag-shopping text-[#5B5B5B] text-2xl mr-1 group-hover:text-[#437C8A] cursor-pointer"></i>
+                </div>
+                <h1 class="font-semibold text-[#437C8A]">£170.00</h1>
+            </div>
+            <div class="w-64 h-[450px] group">
+                <div class="w-64 h-80 overflow-hidden relative">
+                    <img class="transition duration-500 hover:scale-110 w-64 h-80" src="/dis/images/product3-chairs.jpg" alt="">
+                </div>
+                <div class="flex justify-between mt-3">
+                    <P class="text-[#7c7e7d]">Sacrificial Chair Design</P>
+                    <i class="fa-solid fa-bag-shopping text-[#5B5B5B] text-2xl mr-1 group-hover:text-[#437C8A] cursor-pointer"></i>
+                </div>
+                <h1 class="font-semibold text-[#437C8A]">£170.00</h1>
+            </div>
+            <div class="w-64 h-[450px] group">
+                <div class="w-64 h-80 overflow-hidden relative">
+                    <img class="transition duration-500 hover:scale-110 w-64 h-80" src="/dis/images/product4-newL.jpg" alt="">
+                </div>
+                <div class="flex justify-between mt-3">
+                    <P class="text-[#7c7e7d]">New Lamp Design</P>
+                    <i class="fa-solid fa-bag-shopping text-[#5B5B5B] text-2xl mr-1 group-hover:text-[#437C8A]  "></i>
+                </div>
+                <h1 class="font-semibold text-[#437C8A]">£170.00</h1>
+            </div>
+        </div>
+    </div>
+    <div class="flex justify-center items-center my-5">
+        <div class="bg-back-images w-11/12 md:h-32  outline-dotted outline-1 outline-white outline-offset-[-10px] bg-no-repeat bg-cover bg-center flex items-center justify-center py-10 md:py-0 flex-wrap md:justify-between">
+            <div class="ml-6">
+                <h1 class="text-[#1F1F1F] font-bold text-[28px] uppercase"><span class="text-[#437C8A] mr-2">Do You Love Us?</span>Purchase This Theme!</h1>
+                <P class="text-[#7c7e7d] ">Typi non habent claritatem insitam, est usus legentis in iis qui facit eorum claritatem.</P>
+            </div>
+            <button class="font-semibold text-[12px] h-7 sm:text-[15px] text-[#1F1F1F] border border-black w-20 sm:h-10 sm:w-28 flex justify-center items-center mr-10 hover:bg-[#437C8A] hover:text-white hover:border-none mt-2 md:mt-0">PURCHASE</button>
+        </div>
+    </div>
+    <div>
+        <div class="w-full h-32 flex flex-col justify-center items-center mb-4">
+            <h1 class="text-[#1F1F1F] font-bold text-2xl uppercase">from our blog</h1>
+            <P class="text-[#7c7e7d]">Claritas est etiam processus dynamicus, qui sequitur.</P>
+        </div>
+        <div class="flex flex-wrap justify-evenly">
+            <div class="flex group w-[545px]  sm:h-[368px] mb-10 flex-wrap sm:flex-nowrap">
+                <img class="ml-8 sm:ml-0" src="/dis/images/blog1.jpg" alt="">
+                <div class="flex flex-col w-[273px] sm:w-1/2 ml-8 justify-center">
+                    <h1 class="font-bold text-[#437C8A] my-6"><span class="font-bold text-5xl text-[#1F1F1F]">27</span>/APRIL</h1>
+                    <h1 class="text-[#1F1F1F] font-bold text-[15px] uppercase group-hover:text-[#437C8A] cursor-pointer">Claritas est etiam processus
+                        dynamicus.</h1>
+                    <div class="h-[3px] w-10 bg-[#437C8A] my-3"></div>
+                    <P class="text-[#7c7e7d] my-5">Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum...</P>
+                    <h2 class="font-bold text-[13px] text-[#1F1F1F] uppercase my-5 hover:text-[#437C8A] w-24 cursor-pointer">Read More <i class="fa-solid fa-angles-right text-[13px] ml-1"></i></h2>
+                </div>
+            </div>
+            <div class="flex group w-[545px] sm:h-[368px] mb-10 flex-wrap sm:flex-nowrap">
+                <img class="ml-8 sm:ml-0" src="/dis/images/blog2.jpg" alt="">
+                <div class="flex flex-col w-[273px] sm:w-1/2 ml-8 justify-center">
+                    <h1 class="font-bold text-[#437C8A] my-6"><span class="font-bold text-5xl text-[#1F1F1F]">27</span>/APRIL</h1>
+                    <h1 class="text-[#1F1F1F] font-bold text-[15px] uppercase group-hover:text-[#437C8A] cursor-pointer">Claritas est etiam processus
+                        dynamicus.</h1>
+                    <div class="h-[3px] w-10 bg-[#437C8A] my-3"></div>
+                    <P class="text-[#7c7e7d] my-5">Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum...</P>
+                    <h2 class="font-bold text-[13px] text-[#1F1F1F] uppercase my-5 hover:text-[#437C8A] w-24 cursor-pointer">Read More <i class="fa-solid fa-angles-right text-[13px] ml-1"></i></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex justify-center items-center my-10 overflow-hidden">
+        <div class="flex items-center border-dotted border-y border-[#ebebeb]">
+            <div class="w-32 m-8">
+                <img src="/dis/images/logo1.png" alt="">
+            </div>
+            <div class="w-32 m-8">
+                <img src="/dis/images/logo2.png" alt="">
+            </div>
+            <div class="w-32 m-8">
+                <img src="/dis/images/logo3.png" alt="">
+            </div>
+            <div class="w-32 m-8">
+                <img src="/dis/images/logo4.png" alt="">
+            </div>
+            <div class="w-32 m-8">
+                <img src="/dis/images/logo5.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="bg-back-fix bg-no-repeat bg-fixed bg-cover mt-10">
+        <div class="h-[350px] flex items-center justify-center flex-col">
+            <h1 class="text-[#1F1F1F] font-bold text-2xl uppercase my-5">sign up to newsletter</h1>
+            <P class="text-[#7c7e7d] text-center font-normal mb-5">Subscribe to the Eren mailing list to receive updates on new arrivals,
+                <br>special offers and other discount information.
+            </P>
+            <div class="w-[330px]  sm:w-[440px] md:w-[540px] h-9 border border-[#c0bebe] mt-12">
+                <input class="h-[34px] w-[280px] sm:w-[380px] md:w-[480px] bg-transparent  pl-3 outline-none" type="text" placeholder="Subscribe to our newsletter...">
+                <i class="fa-regular fa-paper-plane py-1 px-3 text-[#757474]  hover:text-[#437C8A]"></i>
+            </div>
+        </div>
+    </div>
+    <div class="flex justify-center items-center py-16">
+        <div class="w-3/4 flex justify-center items-center flex-col">
+            <img src="/dis/images/testinomial1.png" alt="">
+            <h1 class="text-[#1F1F1F] font-bold text-[13px] uppercase mt-5">zeeshan ramzan</h1>
+            <h1 class="text-[#437C8A] font-bold text-[11px] uppercase ">developer</h1>
+            <P class="text-[#7c7e7d] text-center font-normal my-8">
+                Typi non habent claritatem insitam, est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica.
+            </P>
+        </div>
+    </div>
+    <div class="flex flex-wrap justify-evenly mb-16">
+        <div class="w-[360px] h-[175px] flex flex-col justify-center items-center text-[#606060] border-dotted border border-[#606060] hover:text-[#437C8A] hover:border-[#79B6C8] my-5">
+            <i class="fa-solid fa-truck-fast text-[33px]"></i>
+            <h1 class="font-bold text-[17px] uppercase mt-5">free shipping worldwide</h1>
+            <h1 class="text-[14px]">Free shipping worldwide</h1>
+        </div>
+        <div class="w-[360px] h-[175px] flex flex-col justify-center items-center text-[#606060] border-dotted border border-[#606060] hover:text-[#437C8A] hover:border-[#79B6C8] my-5">
+            <i class="fa-solid fa-headphones text-[33px]"></i>
+            <h1 class="font-bold text-[17px] uppercase mt-5">24/7 CUSTOMER SERVICE</h1>
+            <h1 class="text-[14px]">Free shipping worldwide</h1>
+        </div>
+        <div class="w-[360px] h-[175px] flex flex-col justify-center items-center text-[#606060] border-dotted border border-[#606060] hover:text-[#437C8A] hover:border-[#79B6C8] my-5">
+            <i class="fa-solid fa-money-check-dollar text-[33px]"></i>
+            <h1 class="font-bold text-[17px] uppercase mt-5">MONEY BACK GUARANTEE!</h1>
+            <h1 class="text-[14px]">Free shipping worldwide</h1>
+        </div>
+    </div>
+
+<!-- Footer section started -->
+
+    <footer class="bg-back-fixx w-full bg-no-repeat bg-cover bg-center pt-[90px] flex flex-col justify-center items-center">
+        <a href="#hel">
+            <div class="h-12 w-12 bg-[#437C8A] flex justify-center items-center rounded-[50%] cursor-pointer relative md:bottom-24 bottom-16">
+            <i class="fa-solid fa-angles-up text-white text-[17px]"></i>
+        </div>
+        </a>
+        <div class="flex items-center justify-evenly w-full flex-wrap">
+            <div class="bg-back-foot bg-no-repeat w-60 h-60 my-10">
+                <div class="flex items-center">
+                    <div class="h-5 w-[2px] bg-[#437C8A]"></div>
+                    <h1 class="font-bold text-[16px] uppercase pl-5 text-white">about store</h1>
+                </div>
+                <div class=" text-[#8e8e8e] text-[14px] my-5">
+                    <div class="flex items-center my-2">
+                        <i class="fa-solid fa-house text-[12px] mr-1"></i>
+                        <p>205 Ali Town, Lahore, Pakistan</p>
+                    </div>
+                    <div class="flex items-center my-2">
+                        <i class="fa-solid fa-phone text-[12px] mr-1"></i>
+                        <p>+92 333 1480580</p>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fa-regular fa-envelope text-[12px] mr-1 mt-1"></i>
+                        <p>rahee.programmer@gmail.com</p>
+                    </div>
+                    <div class="flex items-center my-7">
+                        <img class="mr-1" src="/dis/images/paymennt1.png" alt="">
+                        <img class="mr-1" src="/dis/images/payment2.png" alt="">
+                        <img class="mr-1 mb-[6px]" src="/dis/images/payment3.jpg" alt="">
+                        <img class="mr-1 mb-[6px]" src="/dis/images/payment3.jpg" alt="">
+                        <img src="/dis/images/payment5.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="w-52 h-60 my-10">
+                <div class="flex items-center">
+                    <div class="h-5 w-[2px] bg-[#437C8A]"></div>
+                    <h1 class="font-bold text-[16px] uppercase pl-5 text-white">my account</h1>
+                </div>
+                <ul class="text-[#8e8e8e] text-[14px] my-5">
+                    <li class="cursor-pointer hover:text-[#437C8A] my-3">My Account</li>
+                    <li class="cursor-pointer hover:text-[#437C8A] my-3">Login</li>
+                    <li class="cursor-pointer hover:text-[#437C8A] my-3">My Cart</li>
+                    <li class="cursor-pointer hover:text-[#437C8A] my-3">Wishlist</li>
+                    <li class="cursor-pointer hover:text-[#437C8A] my-3">Checkout</li>
+                    <li class="cursor-pointer hover:text-[#437C8A] my-3">Userinfo</li>
+                </ul>
+            </div>
+            <div class="w-52 h-60 my-10">
+                <div class="flex items-center">
+                    <div class="h-5 w-[2px] bg-[#437C8A]"></div>
+                    <h1 class="font-bold text-[16px] uppercase pl-5 text-white">information</h1>
+                </div>
+                <ul class="text-[#8e8e8e] text-[14px] my-5">
+                    <li class="cursor-pointer hover:text-[#437C8A] my-3">My Account</li>
+                    <li class="cursor-pointer hover:text-[#437C8A] my-3">Login</li>
+                    <li class="cursor-pointer hover:text-[#437C8A] my-3">My Cart</li>
+                    <li class="cursor-pointer hover:text-[#437C8A] my-3">Wishlist</li>
+                    <li class="cursor-pointer hover:text-[#437C8A] my-3">Checkout</li>
+                    <li class="cursor-pointer hover:text-[#437C8A] my-3">Userinfo</li>
+                </ul>
+            </div>
+            <div class="w-52 h-60 my-10">
+                <div class="flex items-center">
+                    <div class="h-5 w-[2px] bg-[#437C8A]"></div>
+                    <h1 class="font-bold text-[16px] uppercase pl-5 text-white">Customer Service</h1>
+                </div>
+                <ul class="text-[#8e8e8e] text-[14px] my-5">
+                    <li class="cursor-pointer hover:text-[#437C8A] my-3">Shipping Policy</li>
+                    <li class="cursor-pointer hover:text-[#437C8A] my-3">Compensation First</li>
+                    <li class="cursor-pointer hover:text-[#437C8A] my-3">My Account</li>
+                    <li class="cursor-pointer hover:text-[#437C8A] my-3">Return Policy</li>
+                    <li class="cursor-pointer hover:text-[#437C8A] my-3">Contact Us</li>
+                    <li class="cursor-pointer hover:text-[#437C8A] my-3">Shipping Info</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <div class="text-[#606060] text-[13px] w-full sm:h-16 bg-[#2D2D2D] flex items-center px-20 justify-center sm:justify-between flex-wrap ">
+        <p class="mt-3 sm:mt-0">Copyright © 2024 <span class="text-[#437C8A] font-semibold cursor-pointer text-[15px]">Eren</span>. All Right Reserved. </p>
+        <div class="my-5 sm:my-0">
+            <i class="fa-brands fa-facebook-f text-[#8e8e8e] border-l border-dotted border-[#8e8e8e] hover:text-[#437C8A] text-[16px] px-3 py-1"></i>
+            <i class="fa-brands fa-twitter text-[#8e8e8e] border-l border-dotted border-[#8e8e8e] hover:text-[#437C8A] text-[16px] px-3 py-1"></i>
+            <i class="fa-solid fa-rss text-[#8e8e8e] border-l border-dotted border-[#8e8e8e] hover:text-[#437C8A] text-[16px] px-3 py-1"></i>
+            <i class="fa-brands fa-google-plus-g text-[#8e8e8e] border-l border-dotted border-[#8e8e8e] hover:text-[#437C8A] text-[16px] px-3 py-1"></i>
+            <i class="fa-brands fa-linkedin-in text-[#8e8e8e] border-x border-dotted border-[#8e8e8e] hover:text-[#437C8A] text-[16px] px-3 py-1"></i>
+        </div>
+    </div>
+</body>
+<script src="javascript.js"></script>
+</html>
